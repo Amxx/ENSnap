@@ -16,4 +16,8 @@ I believe most, if not all, ethereum addresses should be names (and reverse regi
 
 For ENSnap to work, the snap must have the hability to read smart contracts. This is a minimal permission that is today preventing real tests of ENSnap. Additionnaly, setting up domains will require sending transaction on behalf of the user. This can be seen as an extra, that user could enable or not.
 
+## Challenges and upcomming work
+
+Due to the limitation of snaps, ENSnap is not really usable for now. The first objective is to fix the resolution/lookup methods, that are "read only" before adding more complexe operations like domain registration. Despite ENSnap not being ready for now, I really hope evolutions of the snap mechanism will allow me to continue developping it up to, and beyound, the point where is will be a usable, and usefull, tool for users and dapp developpers.
+
 *ENSnap is an EthDenver 2020 hack*
