@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html>
+
+	</head>
+		<title>ENSnap</title>
+	</head>
+
+	<body>
+		<h1>ENSnap</h1>
+		<br/>
+		<button class="connect">Connect</button>
+		<input  class="content" value="hadriencroubois.eth"></input>
+		<button class="resolve">resolve</button>
+		<button class="lookup">lookup</button>
+	</body>
+
+	<script>
+		const snapId = new URL('package.json', window.location.href).toString()
+
+		document.querySelector('button.connect').addEventListener('click', () => connect())
+		document.querySelector('button.resolve').addEventListener('click', () => submit('resolve'))
+		document.querySelector('button.lookup' ).addEventListener('click', () => submit('lookup'))
+
+		async function connect()
+		{
+			await ethereum.send({
+				method: 'wallet_enable',
+				params: [{
+					wallet_plugin: { [snapId]: {} },
+				}]
+			})
+		}
+
+		async function submit(method)
+		{
+			try
+			{
+				const response = await ethereum.send({
+					method: 'wallet_invokePlugin',
+					params: [snapId, {
+						method: method,
+						params: document.querySelector('input.content').value
+					}]
+				})
+				console.log(response);
+			}
+			catch (e)
+			{
+				console.error(e)
+				alert('Problem happened: ' + e.message || e)
+			}
+		}
+
+	</script>
+
+</html>

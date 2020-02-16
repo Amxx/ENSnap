@@ -1,0 +1,26 @@
+{
+  "name": "ENSnap",
+  "description": "resolve & lookup ens addresses",
+  "version": "0.0.1",
+  "author": "Hadrien Croubois <hadrien.croubois@gmail.com>",
+  "license": "MIT",
+  "repository": "https://github.com/Amxx/ENSnap",
+  "main": "index.js",
+  "scripts": {
+    "build": "snap build"
+  },
+  "web3Wallet": {
+    "bundle": {
+      "local": "dist/bundle.js",
+      "url": "http://localhost:8081/dist/bundle.js"
+    },
+    "initialPermissions": {
+      "alert": {}
+    }
+  },
+  "dependencies": {
+    "@ensdomains/ens": "^0.4.4",
+    "@ensdomains/resolver": "^0.2.4",
+    "snaps-cli": "^0.4.1"
+  }
+}
